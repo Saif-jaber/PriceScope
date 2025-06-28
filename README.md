@@ -15,7 +15,7 @@ Just open the `index.html` file in any modern browser:
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourname/pricescope.git
+git clone https://github.com/Saif-jaber/PriceScope.git
 
 # Open in browser (no server needed)
 open pricescope/index.html
