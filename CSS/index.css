@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -93,20 +97,39 @@ ul li hr {
     width: 35px;
 }
 
+/* Your existing rules */
 #search-container input{
-    background-color: #dddddd00;
-    border: 0px;
-    font-size: 25px;
-    color: white;
-    width: 75%;
-    padding: 7px;
+  background-color: #dddddd00;
+  border: 0;
+  font-size: 25px;
+  color: white;
+  width: 75%;
+  padding: 7px;
 }
 
-#search-container input:focus, #search-container input:active{
-    outline: none;
-    background-color: #dddddd00;
-    border: 0px;
+#search-container input:focus,
+#search-container input:active{
+  outline: none;
+  background-color: #dddddd00;
+  border: 0;
 }
+
+/* ----- Autofill overrides (Chrome / Edge / Safari) ----- */
+#search-container input:-webkit-autofill,
+#search-container input:-webkit-autofill:hover,
+#search-container input:-webkit-autofill:focus,
+#search-container input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset; /* wipes the yellow bg */
+  -webkit-text-fill-color: white;                       /* keeps your text color */
+  transition: background-color 5000s ease-in-out 0s;    /* fixes flash in some browsers */
+}
+
+/* ----- Firefox autofill override ----- */
+#search-container input:-moz-autofill {
+  box-shadow: 0 0 0px 1000px transparent inset;
+  -moz-text-fill-color: white;
+}
+
 
 #search-btn{
     background-color: aqua;
@@ -243,12 +266,115 @@ ul li hr {
 #f3{
     width: 40px;
     height: 40px;
-    background-color: rgb(255, 183, 105);
+    background-color: rgb(255, 206, 153);
     border-radius: 5px;
     padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+footer{
+  background-color: #141414;
+  width: 100%;
+  height: 30%;
+  color: white;
+}
+
+footer .footer-objects{
+  display: flex;
+  gap: 20%;
+  padding: 2% 3%;
+}
+
+footer h1{
+  font-size: 25px;
+}
+
+footer p{
+  color: #BCBCBC;
+}
+
+/* container (unchanged) */
+footer .links {
+  width: fit-content;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* anchor (unchanged, but now inline‑block for proper focus outline) */
+footer .links a {
+  display: inline-block;
+}
+
+/* icon: perfectly round + smooth transition */
+footer .links img {
+  width: 35px;
+  height: 35px;            /* keep it square */
+  border-radius: 50%;      /* makes the image circular */
+  object-fit: cover;       /* ensures the image fills the circle */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* subtle glowing halo on hover or keyboard focus */
+footer .links a:hover img,
+footer .links a:focus img {
+  transform: scale(1.05);  /* gentle pop‑out */
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.548); /* soft white glow */
+}
+
+footer ul{
+  list-style: none;
+}
+
+footer ul li{
+  padding: 3.5px 0px;
+}
+
+footer ul li a{
+  color: #BCBCBC;
+  text-decoration: none;
+}
+
+footer ul li a:hover{
+  text-shadow: 0 0 3px white;
+}
+
+.rights {
+  width: 100%;
+  padding: 1.3%;
+  background-color: black;
+  color: #AEAEAE;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes first child left, last child right */
+}
+
+.rights div {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+  align-items: center;
+  width: auto;               /* let it size naturally */
+  border-radius: 4px;        /* optional rounded corners */
+}
+
+.rights h1 {
+  font-size: 14px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+               'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;  /* reset default margin */
+}
+
+.rights button{
+  background-color: #14141400;
+  color: #AEAEAE;
+  border: 0px;
+  cursor: pointer;
+}
+
+.rights button:hover{
+  text-shadow: 0 0 3px rgb(0, 238, 255);
 }
 
 
