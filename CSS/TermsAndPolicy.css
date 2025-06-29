@@ -1,0 +1,133 @@
+/* ---------- Reset and base styles ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------- Header ---------- */
+header {
+  display: flex;
+  background-color: rgb(0, 0, 122);
+  padding: 1.3rem;
+  gap: 2rem;
+}
+
+/* Nav container (centered with margin‑left tweak) */
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-left: 24%;   /* adjust or remove if you need perfect centering */
+}
+
+/* Logo inside header */
+header img {
+  height: 3rem;
+}
+
+/* Navigation links container */
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 4rem;
+}
+
+/* ---------- Link styles + underline animation ---------- */
+nav ul li a {
+  color: white;
+  text-decoration: none;         /* remove default underline */
+  position: relative;            /* context for ::after bar */
+}
+
+/* invisible bar (draws left → right on hover) */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;                 /* distance below text */
+  width: 100%;
+  height: 2px;                  /* thickness of underline */
+  background: currentColor;     /* uses link text color */
+  transform: scaleX(0);         /* hidden by default */
+  transform-origin: left;       /* draw from left edge */
+  transition: transform 0.3s ease;
+}
+
+/* Show underline on hover or keyboard focus */
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+  transform: scaleX(1);         /* full width: left → right */
+}
+
+main{
+    width: 100%;
+    height: fit-content;
+    padding: 2rem 5rem;
+    display: flex;
+}
+
+.links-container{
+    width: 25%;
+    height: 35%;
+}
+
+.links-container a {
+  color: rgb(0, 0, 122);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+  width: fit-content;
+  height: fit-content;
+  position: relative; /* Required for positioning the ::after underline */
+}
+
+/* Underline animation */
+.links-container a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background-color: rgb(0, 0, 122);
+  transition: width 0.3s ease-in-out;
+}
+
+.links-container a:hover::after {
+  width: 100%;
+}
+
+
+.Sections-container{
+    width: 70%;
+    height: 36.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.Sections-container h1{
+    color: rgb(0, 0, 173);
+    font-size: 30px;
+    margin-top: 2rem;
+}
+
+.Sections-container p{
+    margin-top: 1rem;
+    color: black;
+}
