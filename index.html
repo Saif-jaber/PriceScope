@@ -31,9 +31,10 @@
 
              <div id="search-container">
                 <img src="Images/search-icon.png" alt="">
-                <input type="text" name="product" id="search-bar">
-                <button type="button" id="search-btn">search</button>
+                <input type="text" name="product" id="search-bar" required minlength="1">
+                <button type="submit" id="search-btn" onclick="saveAndSearch()">search</button>
              </div>
+             <div type="text" name="messageBox" id="message-box" readonly></div>
         </div>
     </header>
 

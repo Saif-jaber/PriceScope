@@ -92,6 +92,25 @@ ul li hr {
     border-radius: 50px;
 }
 
+#message-box{
+  color: red;
+  height: fit-content;
+  width: fit-content;
+  background-color: #14141400;
+  border: 0px rgba(255, 255, 255, 0);
+  outline: none;
+  font-size: 25px;
+  text-shadow: 0 0 10px #141414;
+  margin-top: 1rem;
+  justify-self: center;
+}
+
+#message-box:active, #message-box:focus{
+  background-color: #14141400;
+  border: 0px rgba(255, 255, 255, 0);
+  outline: none;
+}
+
 #search-container img{
     margin: 10px 10px;
     width: 35px;
